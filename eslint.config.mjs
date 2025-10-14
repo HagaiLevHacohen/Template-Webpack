@@ -19,7 +19,24 @@ export default defineConfig([
     files: ["webpack.config.js", "webpack.*.js"],
     languageOptions: {
       globals: globals.node,
-      sourceType: "commonjs", // optional but correct here
+      sourceType: "commonjs",
+    },
+  },
+
+  // Override for babel.config.js
+  {
+    files: ["babel.config.js"],
+    languageOptions: {
+      globals: globals.node,
+      sourceType: "commonjs",
+    },
+  },
+
+  // ✅ Override for Jest test files
+  {
+    files: ["**/*.test.js", "**/*.spec.js"],
+    languageOptions: {
+      globals: globals.jest,
     },
   },
 ]);
